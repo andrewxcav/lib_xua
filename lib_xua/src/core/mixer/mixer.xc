@@ -138,6 +138,16 @@ int doMix5(volatile int * const unsafe samples, volatile int * const unsafe mult
 int doMix6(volatile int * const unsafe samples, volatile int * const unsafe mult);
 int doMix7(volatile int * const unsafe samples, volatile int * const unsafe mult);
 #else
+#ifdef __XS3A__
+#error got here
+// load mixmap into VPU register
+//VLMACCR samples for first n outputs
+// if weights > 16, repeat and add partial sums
+
+
+
+
+else
 #pragma unsafe arrays
 static inline int doMix(volatile int * unsafe samples, volatile int * unsafe const mixMap, volatile int * const unsafe mult)
 {
@@ -170,6 +180,7 @@ static inline int doMix(volatile int * unsafe samples, volatile int * unsafe con
     }
     return h<<7;
 }
+#endif
 #endif
 
 #pragma unsafe arrays

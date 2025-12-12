@@ -12,6 +12,7 @@ set(APP_COMPILER_FLAGS -O3
                        -Wno-unused-function
                        -DXUD_CORE_CLOCK=600
                        -fxscope
+                       -DMIXER
                        -DUAC_FORCE_FEEDBACK_EP=0
                        -DBOARD_SUPPORT_BOARD=XK_AUDIO_316_MC_AB)
 
